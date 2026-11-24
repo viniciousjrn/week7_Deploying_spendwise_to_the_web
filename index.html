@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpendWise — Personal Budget &amp; Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header & Navigation (Week 1–2 Semantic Structure) -->
+  <header class="app-header">
+    <div class="header-content">
+      <div>
+        <h1>SpendWise</h1>
+        <p>Smart Personal Budgeting &amp; Expense Dashboard</p>
+      </div>
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#budget-section">Budget</a></li>
+          <li><a href="#dashboard-section">Summary</a></li>
+          <li><a href="#expense-section">Add Expense</a></li>
+          <li><a href="#records-section">Records</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Week 5–6: Interactive Budget Setup -->
+    <section id="budget-section" class="card">
+      <h2>1. Set Monthly Budget</h2>
+      <form id="budget-form" class="inline-form">
+        <div class="form-group">
+          <label for="budget-input">Monthly Budget (KES)</label>
+          <input
+            type="number"
+            id="budget-input"
+            placeholder="e.g. 50000"
+            min="1"
+            step="any"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Set Budget</button>
+      </form>
+      <p id="budget-feedback" class="feedback-message" aria-live="polite"></p>
+    </section>
+
+    <!-- Week 3–6: Responsive Summary Cards -->
+    <section id="dashboard-section" class="summary-grid" aria-label="Budget Summary">
+      <div class="stat-card">
+        <span class="stat-label">Monthly Budget</span>
+        <strong id="display-budget" class="stat-value">KES 0.00</strong>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Total Expenses</span>
+        <strong id="display-expenses" class="stat-value">KES 0.00</strong>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Remaining Balance</span>
+        <strong id="display-balance" class="stat-value">KES 0.00</strong>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Budget Used</span>
+        <strong id="display-percentage" class="stat-value">0.0%</strong>
+      </div>
+    </section>
+
+    <!-- Week 6: Conditional Financial Health Banner -->
+    <section id="status-banner" class="status-banner status-neutral" aria-live="polite">
+      Set a monthly budget above to start tracking your spending health.
+    </section>
+
+    <!-- Week 2 & 6: Add Categorized Expense Form -->
+    <section id="expense-section" class="card">
+      <h2>2. Add an Expense</h2>
+      <form id="expense-form" class="expense-form">
+        <div class="form-group">
+          <label for="expense-name">Expense Name</label>
+          <input
+            type="text"
+            id="expense-name"
+            placeholder="e.g. Rent, Groceries, Transport"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="expense-category">Category</label>
+          <select id="expense-category">
+            <option value="Housing">Housing</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Utilities">Utilities</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="expense-amount">Amount (KES)</label>
+          <input
+            type="number"
+            id="expense-amount"
+            placeholder="e.g. 3500"
+            min="1"
+            step="any"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Expense</button>
+      </form>
+      <p id="expense-feedback" class="feedback-message" aria-live="polite"></p>
+    </section>
+
+    <!-- Week 6: Dynamic Expense Records List -->
+    <section id="records-section" class="card">
+      <div class="list-header">
+        <h2>3. Recorded Expenses (<span id="expense-count">0</span>)</h2>
+        <button type="button" id="clear-all-btn" class="btn btn-danger">
+          Clear All
+        </button>
+      </div>
+      <ul id="expense-list" class="expense-list">
+        <li class="empty-state">No expenses recorded yet.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; 2026 SpendWise Project &bull; Built &amp; Deployed with GitHub &amp; Netlify</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
